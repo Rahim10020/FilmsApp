@@ -1,4 +1,4 @@
-package tg.rahimali.filmsapp
+package tg.rahimali.filmsapp.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

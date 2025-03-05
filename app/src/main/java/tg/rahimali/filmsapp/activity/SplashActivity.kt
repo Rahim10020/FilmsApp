@@ -1,4 +1,4 @@
-package tg.rahimali.filmsapp
+package tg.rahimali.filmsapp.activity
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -34,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import tg.rahimali.filmsapp.R
 
 
 class SplashActivity : AppCompatActivity() {
