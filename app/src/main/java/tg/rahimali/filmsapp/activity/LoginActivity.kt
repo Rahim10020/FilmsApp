@@ -2,6 +2,7 @@ package tg.rahimali.filmsapp.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -15,6 +16,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -76,10 +79,53 @@ fun LoginScreen() {
                 hint = "Username",
                 modifier = Modifier.fillMaxWidth()
             )
-
+            Spacer(modifier = Modifier.height(16.dp))
+            GradientTextField(
+                hint = "Password",
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = "Forget password ?",
+                style = TextStyle(
+                    color = Color.White,
+                    fontSize = 16.sp,
+                    textAlign = TextAlign.End
+                ),
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(64.dp))
         }
     }
 }
+
+
+@Composable
+fun GradientButton(
+    text : String,
+    onClick : () -> Unit,
+    modifier : Modifier = Modifier
+) {
+    Button(
+        modifier = modifier,
+        onClick = onClick,
+        shape = RoundedCornerShape(60.dp),
+        border = BorderStroke(
+            width = 4.dp,
+            brush = Brush.linearGradient(
+                colors = listOf(
+                    colorResource(R.color.pink),
+                    colorResource(R.color.green)
+                )
+            )
+        ),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color.Transparent,
+            contentColor = Color.White
+        )
+    ) { }
+}
+
 
 
 @Composable
@@ -100,6 +146,7 @@ fun GradientTextField(
                 ),
                 shape = RoundedCornerShape(50.dp)
             )
+            .padding(4.dp)
     ) {
         OutlinedTextField(
             value = "",
@@ -124,6 +171,9 @@ fun GradientTextField(
                 cursorColor = Color.White,
                 focusedLabelColor = Color.White,
                 unfocusedLabelColor = Color.White,
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                disabledContainerColor = Color.Transparent,
             ),
             modifier = Modifier
                 .fillMaxWidth()
