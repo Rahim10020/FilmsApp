@@ -15,10 +15,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.OutlinedTextField
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -70,6 +72,11 @@ fun LoginScreen() {
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(120.dp))
+            GradientTextField(
+                hint = "Username",
+                modifier = Modifier.fillMaxWidth()
+            )
+
         }
     }
 }
@@ -105,8 +112,27 @@ fun GradientTextField(
                     modifier = Modifier.fillMaxWidth()
                 )
             },
-            singleLine = true
-
+            singleLine = true,
+            textStyle = TextStyle(
+                color = Color.White,
+                textAlign = TextAlign.Center
+            ),
+            keyboardOptions = keyboardOptions,
+            colors = TextFieldDefaults.colors(
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+                cursorColor = Color.White,
+                focusedLabelColor = Color.White,
+                unfocusedLabelColor = Color.White,
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    color = colorResource(R.color.black1),
+                    shape = RoundedCornerShape(50.dp)
+                )
+                .align(Alignment.Center)
         )
+
     }
 }
