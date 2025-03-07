@@ -1,5 +1,6 @@
 package tg.rahimali.filmsapp.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,9 +18,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,9 +42,13 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            IntroScreen(onGetInClick = {
-
-            })
+            IntroScreen(
+                onGetInClick = {
+                    startActivity(
+                        Intent(this, LoginActivity::class.java)
+                    )
+                }
+            )
         }
     }
 }
@@ -152,7 +157,7 @@ fun FooterSection(onGetInClick: () -> Unit) {
                 )
             ),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color.Transparent,
+                containerColor = Color.Transparent,
                 contentColor = Color.White
             )
         ) {

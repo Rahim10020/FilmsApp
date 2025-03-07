@@ -1,6 +1,8 @@
 package tg.rahimali.filmsapp.activity
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -40,13 +42,27 @@ import tg.rahimali.filmsapp.R
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContent {
+            LoginScreen(
+                onLoginClick = {
+                    startActivity(
+                        Intent(this, MainActivity::class.java)
+                    )
+                }
+            )
+        }
     }
 }
 
 
 @Composable
 @Preview
-fun LoginScreen() {
+fun LoginScreenPreview() {
+    LoginScreen(onLoginClick = {})
+}
+
+@Composable
+fun LoginScreen(onLoginClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -70,6 +86,7 @@ fun LoginScreen() {
                 style = TextStyle(
                     color = Color.White,
                     fontSize = 40.sp,
+                    textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                 ),
                 modifier = Modifier.fillMaxWidth()
@@ -94,7 +111,14 @@ fun LoginScreen() {
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(64.dp))
+            Spacer(modifier = Modifier.height(35.dp))
+            GradientButton(
+                text = "Login",
+                onClick = onLoginClick,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp)
+            )
         }
     }
 }
@@ -102,9 +126,9 @@ fun LoginScreen() {
 
 @Composable
 fun GradientButton(
-    text : String,
-    onClick : () -> Unit,
-    modifier : Modifier = Modifier
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Button(
         modifier = modifier,
@@ -123,9 +147,14 @@ fun GradientButton(
             containerColor = Color.Transparent,
             contentColor = Color.White
         )
-    ) { }
+    ) {
+        Text(
+            text = text,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold
+        )
+    }
 }
-
 
 
 @Composable
