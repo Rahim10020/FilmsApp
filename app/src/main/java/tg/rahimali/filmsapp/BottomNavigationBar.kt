@@ -4,7 +4,6 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
@@ -76,7 +75,8 @@ fun BottomNavigationBar() {
                     Text(
                         text = bottomMenuItem.label,
                         fontSize = 15.sp,
-                        modifier = Modifier.padding(top = 10.dp, bottom = 4.dp)
+                        color = Color.White,
+                        modifier = Modifier.padding(top = 7.dp)
                     )
                 },
                 alwaysShowLabel = true,
