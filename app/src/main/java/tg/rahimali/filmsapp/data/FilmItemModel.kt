@@ -3,14 +3,14 @@ package tg.rahimali.filmsapp.data
 import java.io.Serializable
 
 data class FilmItemModel(
-    var title : String = "",
-    var descriptipon : String = "",
-    var poster : String = "",
-    var time : String = "",
-    var trailer : String = "",
-    var imdb : String = "",
-    var year : String = "",
+    var Title : String = "",
+    var Descriptipon : String = "",
+    var Poster : String = "",
+    var Time : String = "",
+    var Trailer : String = "",
+    var Imdb : Int = 0,
+    var Year : Int = 0,
     var price : Double = 0.0,
-    var genre : ArrayList<String> = ArrayList(),
-    var casts : ArrayList<CastModel> = ArrayList(),
+    var Genre : ArrayList<String> = ArrayList(),
+    var Casts : ArrayList<CastModel> = ArrayList(),
 ):Serializable

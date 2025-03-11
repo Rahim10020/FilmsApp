@@ -1,11 +1,12 @@
-1h 08min 21sec
+1h 24min 00sec
 
 
 
------------------------------------------------------------------
+---------------------------------------------------------------
         ETAPES UTILISEES POUR CODER L'APPLICATION
------------------------------------------------------------------
+---------------------------------------------------------------
     - Commencement avec SplashActivity
     - Ensuite loginActivity
     - Ensuite le BottomNavigationBar
     - Ensuite creation du package data et creation du view model
+    - Ensuite creation de MainScreen dans la MainActivity
