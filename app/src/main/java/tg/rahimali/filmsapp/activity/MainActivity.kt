@@ -1,5 +1,6 @@
 package tg.rahimali.filmsapp.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -57,7 +58,13 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MainScreen(onItemClick = {})
+            MainScreen(
+                onItemClick = { item ->
+                    // on cree un intent qui par de l'activite actuelle vers MovieDetailActivity
+                    val intent = Intent(this, MovieDetailActivity::class.java)
+                    intent.putExtra("object", item)
+                    startActivity(intent)
+                })
         }
     }
 }
@@ -146,11 +153,11 @@ fun MainContent(onItemClick: (FilmItemModel) -> Unit) {
     ) {
         Text(
             text = "What would you want to watch ?",
-            fontSize = 19.sp,
+            fontSize = 17.sp,
             color = Color.White,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .padding(start = 19.dp, bottom = 16.dp)
+                .padding(start = 21.dp, bottom = 16.dp)
                 .fillMaxWidth()
         )
         SearchBar("Search Movies...")
@@ -170,7 +177,7 @@ fun MainContent(onItemClick: (FilmItemModel) -> Unit) {
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(16.dp)
             ) {
-                items(newMovies){ item ->
+                items(newMovies) { item ->
                     FilmItem(item, onItemClick)
                 }
             }
@@ -191,7 +198,7 @@ fun MainContent(onItemClick: (FilmItemModel) -> Unit) {
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(16.dp)
             ) {
-                items(upCommings){ upcom ->
+                items(upCommings) { upcom ->
                     FilmItem(upcom, onItemClick)
                 }
             }
@@ -207,6 +214,6 @@ fun SectionTitle(title: String) {
         fontWeight = FontWeight.Bold,
         fontSize = 18.sp,
         color = Color(0xffffc107),
-        modifier = Modifier.padding(start = 12.dp, top = 32.dp, bottom = 8.dp)
+        modifier = Modifier.padding(start = 17.dp, top = 32.dp, bottom = 8.dp)
     )
 }

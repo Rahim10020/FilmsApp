@@ -8,6 +8,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import tg.rahimali.filmsapp.data.FilmItemModel
 
+// classe qui va interagir avec ma base de donnees
 class MainRepository {
     // recuperer une instance de firebase
     private val firebaseDatabase = FirebaseDatabase.getInstance()
