@@ -4,7 +4,7 @@ import java.io.Serializable
 
 data class FilmItemModel(
     var Title : String = "",
-    var Descriptipon : String = "",
+    var Description : String = "",
     var Poster : String = "",
     var Time : String = "",
     var Trailer : String = "",
