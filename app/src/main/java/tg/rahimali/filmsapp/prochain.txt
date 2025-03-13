@@ -1,6 +1,3 @@
-1h 39min 02sec
-
-
 
 ---------------------------------------------------------------
         ETAPES UTILISEES POUR CODER L'APPLICATION
@@ -10,3 +7,4 @@
     - Ensuite le BottomNavigationBar
     - Ensuite creation du package data et creation du view model
     - Ensuite creation de MainScreen dans la MainActivity
+    - Ensuite MovieDetailActivity

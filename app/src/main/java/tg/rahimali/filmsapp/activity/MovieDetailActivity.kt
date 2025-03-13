@@ -1,6 +1,7 @@
 package tg.rahimali.filmsapp.activity
 
 import android.os.Bundle
+import android.view.RoundedCorner
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -189,10 +190,39 @@ fun DetailScreen(film: FilmItemModel, onBackClick: () -> Unit) {
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(9.dp))
-                    LazyRow(contentPadding = PaddingValues(8.dp)) {
-
+                    LazyRow(
+                        contentPadding = PaddingValues(8.dp),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        items(film.Casts.size){
+                            film.Casts[it].Actor?.let {
+                                Text(
+                                    text = "$it",
+                                    color = Color.White,
+                                    fontSize = 14.sp
+                                )
+                            }
+                        }
                     }
                 }
+                LazyRow(
+                    contentPadding = PaddingValues(12.dp),
+                    horizontalArrangement = Arrangement.spacedBy(25.dp)
+
+                ) {
+                    items(film.Casts.size) {
+                        AsyncImage(
+                            model = film.Casts[it].PicUrl,
+                            contentScale = ContentScale.Crop,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(75.dp)
+                                .padding(4.dp)
+                                .clip(RoundedCornerShape(50.dp))
+                        )
+                    }
+                }
+
             }
         }
     }
